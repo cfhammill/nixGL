@@ -20,6 +20,16 @@ dirs = [e.text for e in soup.select(".dir")]
 vers = [re.sub("/$", "", t) for t in dirs if not re.search("^..$|-", t)]
 url_tmpl = "https://download.nvidia.com/XFree86/Linux-x86_64/{v}/NVIDIA-Linux-x86_64-{v}.run"
 
+nv_datacenter = requests.get(
+    "https://developer.nvidia.com/datacenter-driver-archive", headers=headers)
+soup_datacenter = BeautifulSoup(nv_datacenter.content.decode(), 'html.parser')
+vers_datacenter = [a.text.split(" ")[-1]  for a \
+                   in soup_datacenter.select("a") \
+                   if a.text.find("Driver") != -1]
+
+extra_vers = list(set(vers_datacenter) - set(vers))
+extra_url_tmpl = "https://us.download.nvidia.com/tesla/{v}/NVIDIA-Linux-x86_64-{v}.run"
+
 def process_output(o):
     lines = o.decode().split("\n")
     pth_line = lines[0]
@@ -63,6 +73,12 @@ for v in vers:
         result = do_download(v, url_tmpl)
         if result is not None:
             drivers[v] = result
+
+for v in extra_vers:
+     if v not in drivers.keys():
+         result = do_download(v, extra_url_tmpl)
+         if result is not None:
+             drivers[v] = result
 
 with open("driver-versions.json", "wt") as f:
     json.dump(drivers, f, indent=2)
