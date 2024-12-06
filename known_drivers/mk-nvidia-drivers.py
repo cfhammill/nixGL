@@ -7,6 +7,7 @@ import re
 import subprocess
 from subprocess import CalledProcessError
 import os
+import json
 
 CLEANUP=True
 
@@ -17,6 +18,7 @@ nv = requests.get("https://download.nvidia.com/XFree86/Linux-x86_64/", headers=h
 soup = BeautifulSoup(nv.content.decode(), 'html.parser')
 dirs = [e.text for e in soup.select(".dir")]
 vers = [re.sub("/$", "", t) for t in dirs if not re.search("^..$|-", t)]
+url_tmpl = "https://download.nvidia.com/XFree86/Linux-x86_64/{v}/NVIDIA-Linux-x86_64-{v}.run"
 
 def process_output(o):
     lines = o.decode().split("\n")
@@ -26,39 +28,41 @@ def process_output(o):
 
     return (store_pth, store_hash)
 
-if os.path.exists("driver-versions.nix"):
-    print("driver-versions.nix already exists, parsing known versions to skip re-downloads.")
-    known_versions = []
-    old_version_lines = []
-    with open("driver-versions.nix") as f:
-          for line in f:
-            if line.startswith("{"):
-                version = re.search('version = "([^"]*)"', line).group(1)
-                known_versions.append(version)
-                old_version_lines.append(line)
+def do_cleanup(pth):
+    print(f"Attempting cleanup of {pth}")
+    try:
+        subprocess.check_output(["nix-store", "--delete", pth])
+        print("Cleanup success.")
+    except CalledProcessError:
+        print("Cleanup failed.")
 
-with open("driver-versions.nix", "wt") as f:
-    print("[", file=f)
-    for line in old_version_lines:
-        print(line.strip(), file=f)
+def do_download(version, url_tmpl):
+    try:
+        url = url_tmpl.format(v = version)
+        print(f"Trying download of {url}")
+        out = subprocess.check_output(["nix-prefetch-url", url], stderr = subprocess.STDOUT)
+        store_pth, store_hash = process_output(out)
+        if CLEANUP:
+            do_cleanup(store_pth)
 
-    for v in vers:
-        if v not in known_versions: 
-            try: 
-                url = f"https://download.nvidia.com/XFree86/Linux-x86_64/{v}/NVIDIA-Linux-x86_64-{v}.run"
-                print(f"Trying download of {url}")
-                out = subprocess.check_output(["nix-prefetch-url", url], stderr = subprocess.STDOUT)
-                store_pth, store_hash = process_output(out)
-                if CLEANUP:
-                    print(f"Attempting cleanup of {store_pth}")
-                    try:
-                        subprocess.check_output(["nix-store", "--delete", store_pth])
-                        print("Cleanup success.")
-                    except CalledProcessError:
-                        print("Cleanup failed.")
-                        pass
-                    print(f'{{ version = "{v}"; sha256 = "{store_hash}"; }}', file=f)                  
-            except CalledProcessError:
-                print("Download Failed")
-                pass
-    print("]", file=f)
+        return {"sha256" : store_hash, "known_url" : url}
+
+    except CalledProcessError:
+        print("Download Failed")
+        return None
+
+if os.path.exists("driver-versions.json"):
+    print("driver-versions.json already exists, parsing known versions to skip re-downloads.")
+    with open("driver-versions.json") as f:
+        drivers = json.load(f)
+else:
+    drivers = {}
+
+for v in vers:
+    if v not in drivers.keys():
+        result = do_download(v, url_tmpl)
+        if result is not None:
+            drivers[v] = result
+
+with open("driver-versions.json", "wt") as f:
+    json.dump(drivers, f, indent=2)
