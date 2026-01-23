@@ -50,7 +50,7 @@ def do_download(version, url_tmpl):
     try:
         url = url_tmpl.format(v = version)
         print(f"Trying download of {url}")
-        out = subprocess.check_output(["nix-prefetch-url", url], stderr = subprocess.STDOUT)
+        out = subprocess.check_output(["nix-prefetch-url", url], stderr = subprocess.STDOUT, timeout=600)
         store_pth, store_hash = process_output(out)
         if CLEANUP:
             do_cleanup(store_pth)
