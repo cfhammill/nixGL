@@ -1527,6 +1527,10 @@
     "sha256": "1qgchac62f9az13w7wj8zzvyqls21067qygjdmf707yddvyk437j",
     "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/535.288.01/NVIDIA-Linux-x86_64-535.288.01.run"
   },
+  "535.309.01": {
+    "sha256": "00wqsffy2bvw4x8awih1r94nngmagr7sh9ljkas1gc3rx814k2r8",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/535.309.01/NVIDIA-Linux-x86_64-535.309.01.run"
+  },
   "550.142": {
     "sha256": "18cj2zmrzljd7nc4bmrc9l11pq092pd7nsxnad9djhjby254kmbd",
     "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/550.142/NVIDIA-Linux-x86_64-550.142.run"
@@ -1635,6 +1639,22 @@
     "sha256": "09pchs4lk2h8zpm8q2fqky6296h54knqi1vwsihzdpwaizj57b2c",
     "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/580.126.09/NVIDIA-Linux-x86_64-580.126.09.run"
   },
+  "580.126.18": {
+    "sha256": "17dlk8m0j2h76g012izqbna04ka5xmwnxiql15cccr9d3hp1ny57",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/580.126.18/NVIDIA-Linux-x86_64-580.126.18.run"
+  },
+  "580.142": {
+    "sha256": "0qvm8hh3d90i3674dqlj1lam6m189ah60fzr1iaw72gy7z7mz490",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/580.142/NVIDIA-Linux-x86_64-580.142.run"
+  },
+  "580.159.03": {
+    "sha256": "0xzshdvw0d84zp2zpi0ms2405z88sbd9vcv13x8cjh7nn2cmvj1j",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/580.159.03/NVIDIA-Linux-x86_64-580.159.03.run"
+  },
+  "580.159.04": {
+    "sha256": "07nappxgmp3nl40v00nihhkbwf5gx6frgdkcvwx7plc8n1hngrn1",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/580.159.04/NVIDIA-Linux-x86_64-580.159.04.run"
+  },
   "590.44.01": {
     "sha256": "0sry98w45i0gjfrpgmv4i7k7ywzyydwr1w9plarsd584mil1bfam",
     "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/590.44.01/NVIDIA-Linux-x86_64-590.44.01.run"
@@ -1643,21 +1663,52 @@
     "sha256": "12fnddljvgxksil6n3d5a35wwg8kkq82kkglhz63253qjc3giqmr",
     "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/590.48.01/NVIDIA-Linux-x86_64-590.48.01.run"
   },
-  "570.148.08": {
-    "sha256": "1psgp0hla73grrbsfhpzmpsp64j59h15c039yfdbx0n617kc96b4",
-    "known_url": "https://us.download.nvidia.com/tesla/570.148.08/NVIDIA-Linux-x86_64-570.148.08.run"
-  },
   "570.124.06": {
     "sha256": "04wk6f5irrvfcfs1r44fhhz0d6byzy2j60zsx46m2zniaw3cj60q",
     "known_url": "https://us.download.nvidia.com/tesla/570.124.06/NVIDIA-Linux-x86_64-570.124.06.run"
+  "595.45.04": {
+    "sha256": "0plg9vsim8252c7k3slxblvrspy4xqa6q719flxjmfkc4i4najfd",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/595.45.04/NVIDIA-Linux-x86_64-595.45.04.run"
+  },
+  "595.58.03": {
+    "sha256": "1y99b0h3cv8panjsz4icf052nf83h7p2l9qlaymw8ckrgfb4y3cc",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/595.58.03/NVIDIA-Linux-x86_64-595.58.03.run"
+  },
+  "595.71.05": {
+    "sha256": "10kbdy2ds1mgk2vj8arxx42lmqydcdc1zfpn8a59rr5pc24kn81n",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/595.71.05/NVIDIA-Linux-x86_64-595.71.05.run"
+  },
+  "595.80": {
+    "sha256": "0y6lqns2ndxfhasxpjw77psy0ck1q1s8bfnfy0zmglvzw0zwhm1x",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/595.80/NVIDIA-Linux-x86_64-595.80.run"
+  },
+  "610.43.02": {
+    "sha256": "0qvllxnb20arjhw3bxdz0hw521di9ib75hldzx97gpscpdaa0d1h",
+    "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/610.43.02/NVIDIA-Linux-x86_64-610.43.02.run"
   },
   "570.133.20": {
     "sha256": "018nmhiacfi5vr5k8cksmnc4p4hwb738ljpky55s5s182mxx2lqj",
     "known_url": "https://us.download.nvidia.com/tesla/570.133.20/NVIDIA-Linux-x86_64-570.133.20.run"
   },
+  "580.126.20": {
+    "sha256": "1cay4rd8q3k64bcw0ir1kp38530lc2h2j6dl6l1z4f14wzmdnmd0",
+    "known_url": "https://us.download.nvidia.com/tesla/580.126.20/NVIDIA-Linux-x86_64-580.126.20.run"
+  },
+  "580.126.16": {
+    "sha256": "0hkinbks7v9bpim0hipgry385lnc22lsvx3dcj5m47h2al47pl8v",
+    "known_url": "https://us.download.nvidia.com/tesla/580.126.16/NVIDIA-Linux-x86_64-580.126.16.run"
+  },
+  "570.148.08": {
+    "sha256": "1psgp0hla73grrbsfhpzmpsp64j59h15c039yfdbx0n617kc96b4",
+    "known_url": "https://us.download.nvidia.com/tesla/570.148.08/NVIDIA-Linux-x86_64-570.148.08.run"
+  },
   "570.86.15": {
     "sha256": "0szpcdwyx7c1y3l9li0i183h6s3w2izrxv60dc9l64j0qwcrqw47",
     "known_url": "https://us.download.nvidia.com/tesla/570.86.15/NVIDIA-Linux-x86_64-570.86.15.run"
+  },
+  "570.124.06": {
+    "sha256": "04wk6f5irrvfcfs1r44fhhz0d6byzy2j60zsx46m2zniaw3cj60q",
+    "known_url": "https://us.download.nvidia.com/tesla/570.124.06/NVIDIA-Linux-x86_64-570.124.06.run"
   },
   "570.158.01": {
     "sha256": "1sqqv63zp1bz87lcf4lpd7nsqdnd8l0grnz8vk81ixvvs2dcrx27",
