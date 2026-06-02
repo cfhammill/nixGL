@@ -1666,6 +1666,7 @@
   "570.124.06": {
     "sha256": "04wk6f5irrvfcfs1r44fhhz0d6byzy2j60zsx46m2zniaw3cj60q",
     "known_url": "https://us.download.nvidia.com/tesla/570.124.06/NVIDIA-Linux-x86_64-570.124.06.run"
+  },
   "595.45.04": {
     "sha256": "0plg9vsim8252c7k3slxblvrspy4xqa6q719flxjmfkc4i4najfd",
     "known_url": "https://download.nvidia.com/XFree86/Linux-x86_64/595.45.04/NVIDIA-Linux-x86_64-595.45.04.run"
