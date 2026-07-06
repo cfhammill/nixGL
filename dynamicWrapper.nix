@@ -3,7 +3,6 @@
   writeTextFile,
   runtimeShell,
   gnugrep,
-  gnused,
   shellcheck,
   pcre
 }:
