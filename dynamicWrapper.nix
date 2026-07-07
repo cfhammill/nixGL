@@ -3,7 +3,6 @@
   writeTextFile,
   runtimeShell,
   gnugrep,
-  gnused,
   shellcheck,
   pcre
 }:
@@ -15,7 +14,7 @@ writeTextFile rec {
   driver_file=/proc/driver/nvidia/version
 
   vers=$(${gnugrep}/bin/grep "Module" "$driver_file"  |\
-        ${gnused}/bin/sed -E "s/.*Module  ([0-9.]+)  .*/\1/")
+        ${gnugrep}/bin/grep -E -o "([0-9]{2,3}\.[0-9]{2,3}\.[0-9]{2,3})")
   if [ -z "$vers" ]; then
     echo "Failed to parse your driver version from $driver_file. Does $driver_file exist?"
     echo "Consider using nixGLNvidia-<version> directly instead."
